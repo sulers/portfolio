@@ -42,7 +42,7 @@ Sule R. Swaleh
 - Email: sulersaleh@gmail.com
 - Instagram: @sulecoding_
 - GitHub: sulers
-- WhatsApp: +255774414494
+- WhatsApp: https://wa.me/+255774414494
 
 ## License
 
