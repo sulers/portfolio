@@ -1,353 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sule R. Swaleh | Portfolio</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" />
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&family=Poppins:wght@300;400;500&display=swap');
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sule R. Swaleh | Portfolio</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      rel="icon"
+      href="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app">
+      <nav class="navbar">
+        <ul>
+          <li class="tab active" data-target="home">
+            <i class="fas fa-home"></i> Home
+          </li>
+          <li class="tab" data-target="projects">
+            <i class="fas fa-code"></i> Projects
+          </li>
+          <li class="tab" data-target="contact">
+            <i class="fas fa-envelope"></i> Contact
+          </li>
+        </ul>
+      </nav>
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      background-color: #030314;
-      color: #e0e0ff;
-      font-family: 'Poppins', sans-serif;
-      overflow-x: hidden;
-    }
-
-    .navbar {
-      display: flex;
-      justify-content: center;
-      background: rgba(0, 0, 20, 0.9);
-      backdrop-filter: blur(12px);
-      border-bottom: 2px solid #00bfff;
-      position: fixed;
-      top: 0;
-      width: 100%;
-      z-index: 100;
-      box-shadow: 0 0 20px #00bfff55;
-      height: 70px;
-    }
-
-    .navbar ul {
-      display: flex;
-      gap: 2.5rem;
-      padding: 1rem 0;
-      list-style: none;
-    }
-
-    .navbar li {
-      color: #aaa;
-      font-weight: 600;
-      cursor: pointer;
-      text-transform: uppercase;
-      transition: 0.3s;
-    }
-
-    .navbar li i {
-      margin-right: 0.5rem;
-    }
-
-    .navbar li.active, .navbar li:hover {
-      color: #00eaff;
-      text-shadow: 0 0 15px #00bfff;
-    }
-
-    .app {
-      margin-top: 70px; /* Account for fixed navbar */
-    }
-
-    .page {
-      display: none;
-      min-height: calc(100vh - 70px); /* Account for fixed navbar */
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 2rem;
-    }
-
-    .page.active {
-      display: flex;
-      animation: fadeIn 1s ease forwards;
-    }
-
-    /* ===== HERO SECTION ===== */
-    .hero {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      min-height: calc(100vh - 70px); /* Account for fixed navbar */
-    }
-
-    .hero-bg {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      filter: brightness(0.25) blur(2px);
-    }
-
-    .hero-overlay {
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at center, #001133aa, #000000 70%);
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      color: #e0eaff;
-      text-align: center;
-      animation: floatIn 2s ease;
-      padding: 2rem;
-    }
-
-    .glow-text {
-      font-family: 'Orbitron', sans-serif;
-      font-size: 3rem;
-      color: #00eaff;
-      text-shadow: 0 0 20px #00eaff, 0 0 40px #0066ff;
-      margin-bottom: 1rem;
-    }
-
-    .glow-text span {
-      color: #8a7cff;
-    }
-
-    .subtitle {
-      margin-top: 1rem;
-      font-size: 1.2rem;
-      opacity: 0.9;
-      line-height: 1.7;
-      max-width: 800px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .tagline {
-      margin-top: 2rem;
-      font-size: 1.1rem;
-      color: #ff0080;
-      text-shadow: 0 0 15px #ff00ff;
-    }
-
-    /* ===== PROJECTS ===== */
-    .projects-container {
-      display: flex;
-      gap: 2rem;
-      flex-wrap: wrap;
-      justify-content: center;
-      padding: 2rem 0;
-    }
-
-    .project-card {
-      width: 300px;
-      border: 1px solid rgba(0, 255, 255, 0.3);
-      border-radius: 20px;
-      overflow: hidden;
-      background: linear-gradient(145deg, #050520, #0a0a35);
-      box-shadow: 0 0 25px rgba(0, 255, 255, 0.25);
-      transition: all 0.4s ease;
-      cursor: pointer;
-    }
-
-    .project-card:hover {
-      transform: scale(1.07) rotateY(5deg);
-      box-shadow: 0 0 35px #00eaff;
-    }
-
-    .project-card img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-    }
-
-    .card-info {
-      padding: 1.5rem;
-    }
-
-    .card-info h3 {
-      font-family: 'Orbitron', sans-serif;
-      color: #00eaff;
-      font-size: 1.3rem;
-    }
-
-    .card-info p {
-      margin-top: 0.5rem;
-      color: #ccc;
-      font-size: 1rem;
-    }
-
-    .coming-soon {
-      opacity: 0.7;
-      cursor: not-allowed;
-    }
-
-    .coming-soon:hover {
-      transform: none !important;
-      box-shadow: 0 0 25px rgba(0, 255, 255, 0.25) !important;
-    }
-
-    /* ===== CONTACT ===== */
-    .contact-container {
-      text-align: center;
-      font-size: 1.3rem;
-      padding: 2rem;
-    }
-
-    .contact-container a {
-      color: #00eaff;
-      text-decoration: none;
-      transition: 0.3s;
-    }
-
-    .contact-container a:hover {
-      text-shadow: 0 0 15px #00eaff, 0 0 25px #0088ff;
-    }
-
-    .social-links {
-      margin-top: 1.5rem;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 2rem;
-    }
-
-    .social-links a {
-      font-size: 1.1rem;
-      transition: 0.3s;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    /* ===== ANIMATIONS ===== */
-    @keyframes fadeIn {
-      from { opacity: 0; transform: scale(0.97); }
-      to { opacity: 1; transform: scale(1); }
-    }
-
-    @keyframes floatIn {
-      0% { opacity: 0; transform: translateY(20px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes pulse {
-      0% { text-shadow: 0 0 20px #00eaff, 0 0 40px #0066ff; }
-      50% { text-shadow: 0 0 30px #00eaff, 0 0 60px #0066ff; }
-      100% { text-shadow: 0 0 20px #00eaff, 0 0 40px #0066ff; }
-    }
-
-    .pulse {
-      animation: pulse 3s infinite;
-    }
-
-    /* ===== RESPONSIVE ===== */
-    @media (max-width: 768px) {
-      .glow-text {
-        font-size: 2rem;
-      }
-      .subtitle {
-        font-size: 1rem;
-      }
-      .projects-container {
-        flex-direction: column;
-        align-items: center;
-      }
-      .navbar ul {
-        gap: 1.5rem;
-      }
-      .social-links {
-        flex-direction: column;
-        gap: 1rem;
-      }
-    }
-  </style>
-</head>
-<body>
-  <div class="app">
-    <nav class="navbar">
-      <ul>
-        <li class="tab active" data-target="home"><i class="fas fa-home"></i> Home</li>
-        <li class="tab" data-target="projects"><i class="fas fa-code"></i> Projects</li>
-        <li class="tab" data-target="contact"><i class="fas fa-envelope"></i> Contact</li>
-      </ul>
-    </nav>
-
-    <!-- HOME -->
-    <section id="home" class="page active">
-      <div class="hero">
-        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c" alt="computer" class="hero-bg" />
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-          <h1 class="glow-text">Hi, I’m <span>Sule R. Swaleh</span></h1>
-          <p class="subtitle">A creative web developer building futuristic and secure experiences using Firebase & modern web tech.</p>
-          <p class="tagline">⚡ Code • Create • Evolve ⚡</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- PROJECTS -->
-    <section id="projects" class="page">
-      <div class="projects-container">
-        <div class="project-card" onclick="window.open('https://moudtours.com', '_blank')">
-          <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e" alt="MoudTours" />
-          <div class="card-info">
-            <h3><i class="fas fa-map-marked-alt"></i> MoudTours</h3>
-            <p>A modern tour guiding website with a clean design and fast navigation.</p>
+      <!-- HOME -->
+      <section id="home" class="page active">
+        <div class="hero">
+          <img
+            src="https://images.unsplash.com/photo-1555066931-4365d14bab8c"
+            alt="computer"
+            class="hero-bg"
+          />
+          <div class="hero-overlay"></div>
+          <div class="hero-content">
+            <h1 class="glow-text">Hi, I’m <span>Sule R. Swaleh</span></h1>
+            <p class="subtitle">
+              A creative web developer building futuristic and secure
+              experiences using Firebase & modern web tech.
+            </p>
+            <p class="tagline">⚡ Code • Create • Evolve ⚡</p>
           </div>
         </div>
+      </section>
 
-        <div class="project-card coming-soon">
-          <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c" alt="YouTube School App" />
-          <div class="card-info">
-            <h3><i class="fab fa-youtube"></i> YouTube School App</h3>
-            <p>Coming soon — Learn to code with YouTube-powered lessons.</p>
+      <!-- PROJECTS -->
+      <section id="projects" class="page">
+        <div class="projects-container">
+          <div
+            class="project-card"
+            onclick="window.open('https://moudtours.com', '_blank')"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e"
+              alt="MoudTours"
+            />
+            <div class="card-info">
+              <h3><i class="fas fa-map-marked-alt"></i> MoudTours</h3>
+              <p>
+                A modern tour guiding website with a clean design and fast
+                navigation.
+              </p>
+            </div>
+          </div>
+
+          <div class="project-card coming-soon">
+            <img
+              src="https://images.unsplash.com/photo-1555066931-4365d14bab8c"
+              alt="YouTube School App"
+            />
+            <div class="card-info">
+              <h3><i class="fab fa-youtube"></i> YouTube School App</h3>
+              <p>Coming soon — Learn to code with YouTube-powered lessons.</p>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- CONTACT -->
-    <section id="contact" class="page">
-      <div class="contact-container">
-        <h2 class="glow-text"><i class="fas fa-user-astronaut"></i> Get in Touch</h2>
-        <p>Email: <a href="mailto:sulersaleh@gmail.com">sulersaleh@gmail.com</a></p>
-        <div class="social-links">
-          <a href="https://instagram.com/sulecoding_" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
-          <a href="https://github.com/sulers" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-          <a href="https://wa.me/255774414494" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+      <!-- CONTACT -->
+      <section id="contact" class="page">
+        <div class="contact-container">
+          <h2 class="glow-text">
+            <i class="fas fa-user-astronaut"></i> Get in Touch
+          </h2>
+          <p>
+            Email:
+            <a href="mailto:sulersaleh@gmail.com">sulersaleh@gmail.com</a>
+          </p>
+          <div class="social-links">
+            <a href="https://instagram.com/sulecoding_" target="_blank"
+              ><i class="fab fa-instagram"></i> Instagram</a
+            >
+            <a href="https://github.com/sulers" target="_blank"
+              ><i class="fab fa-github"></i> GitHub</a
+            >
+            <a href="https://wa.me/255774414494" target="_blank"
+              ><i class="fab fa-whatsapp"></i> WhatsApp</a
+            >
+          </div>
         </div>
-      </div>
-    </section>
-  </div>
-
-  <script>
-    const tabs = document.querySelectorAll(".tab");
-    const pages = document.querySelectorAll(".page");
-
-    tabs.forEach((tab) => {
-      tab.addEventListener("click", () => {
-        tabs.forEach((t) => t.classList.remove("active"));
-        pages.forEach((p) => p.classList.remove("active"));
-        tab.classList.add("active");
-        document.getElementById(tab.dataset.target).classList.add("active");
-      });
-    });
-
-    // Neon pulse animation for Home text
-    window.addEventListener("load", () => {
-      const hero = document.querySelector(".hero-content");
-      hero.classList.add("pulse");
-    });
-  </script>
-</body>
+      </section>
+    </div>
+    <script src="script.js"></script>
+  </body>
 </html>
