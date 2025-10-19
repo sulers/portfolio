@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sule R. Swaleh | Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" />
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div class="app">
+    <nav class="navbar">
+      <ul>
+        <li class="tab active" data-target="home"><i class="fas fa-home"></i> Home</li>
+        <li class="tab" data-target="projects"><i class="fas fa-code"></i> Projects</li>
+        <li class="tab" data-target="contact"><i class="fas fa-envelope"></i> Contact</li>
+      </ul>
+    </nav>
+
+    <!-- HOME -->
+    <section id="home" class="page active">
+      <div class="hero">
+        <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c" alt="computer" class="hero-bg" />
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+          <h1 class="glow-text">Hi, I’m <span>Sule R. Swaleh</span></h1>
+          <p class="subtitle">A creative web developer building futuristic and secure experiences using Firebase & modern web tech.</p>
+          <p class="tagline">⚡ Code • Create • Evolve ⚡</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="page">
+      <div class="projects-container">
+        <div class="project-card" onclick="window.open('https://moudtours.com', '_blank')">
+          <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e" alt="MoudTours" />
+          <div class="card-info">
+            <h3><i class="fas fa-map-marked-alt"></i> MoudTours</h3>
+            <p>A modern tour guiding website with a clean design and fast navigation.</p>
+          </div>
+        </div>
+
+        <div class="project-card coming-soon">
+          <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c" alt="YouTube School App" />
+          <div class="card-info">
+            <h3><i class="fab fa-youtube"></i> YouTube School App</h3>
+            <p>Coming soon — Learn to code with YouTube-powered lessons.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="page">
+      <div class="contact-container">
+        <h2 class="glow-text"><i class="fas fa-user-astronaut"></i> Get in Touch</h2>
+        <p>Email: <a href="mailto:sulersaleh@gmail.com">sulersaleh@gmail.com</a></p>
+        <div class="social-links">
+          <a href="https://instagram.com/sulecoding_" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+          <a href="https://github.com/sulers" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+          <a href="https://wa.me/255774414494" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
